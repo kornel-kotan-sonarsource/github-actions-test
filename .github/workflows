@@ -9,7 +9,7 @@ jobs:
       - name: "Run script for analytics"
         uses: AlexSim93/pull-request-analytics-action@v3
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # In the case of a personal access token, it needs to be added to the repository's secrets and used in this field.
+          GITHUB_TOKEN: ${{ secrets.SECRET_TOKEN }} # In the case of a personal access token, it needs to be added to the repository's secrets and used in this field.
           GITHUB_OWNERS_REPOS: "SonarSource/sonarsource-cdk-constructs"
           CORE_HOURS_START: "8:00"
           CORE_HOURS_END: "19:00"
