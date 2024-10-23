@@ -31,7 +31,7 @@ jobs:
       environment: US
 
   end-to-end-testing-us:
-    uses: ./.github/workflows/end-to-end-testing.yml
+    uses: ./.github/workflows/end-to-end-test.yml
     needs: deploy-us
     with:
       environment: US
