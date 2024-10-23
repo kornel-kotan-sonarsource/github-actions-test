@@ -6,18 +6,29 @@ on:
       - main
 
 jobs:
-  deploy:
+  deploy-eu:
     runs-on: ubuntu-latest
-
     steps:
       - name: Deploy EU
         run: echo "Deployment to EU"
 
+  end-to-end-testing:
+    runs-on: ubuntu-latest
+    needs: deploy-eu
+    steps:
       - name: End to end testing
         run: echo "End to end test execution"
 
+  bake-in-period:
+    runs-on: ubuntu-latest
+    needs: end-to-end-testing
+    steps:
       - name: Bake in period
         run: sleep 60
 
+  deploy-us:
+    runs-on: ubuntu-latest
+    needs: bake-in-period
+    steps:
       - name: Deploy US
         run: echo "Deployment to US"
