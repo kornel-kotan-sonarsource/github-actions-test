@@ -50,7 +50,9 @@ jobs:
 
   deploy-prod-us:
     uses: ./.github/workflows/deploy.yml
-    needs: bake-in-eu
+    needs:
+      - bake-in-eu
+      - test-prod-eu
     with:
       environment: PROD-US
 
