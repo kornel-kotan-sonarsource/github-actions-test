@@ -6,7 +6,10 @@ on:
       environment:
         description: 'Breakglass deployment to an environment'
         required: true
-        type: string
+        type: choice
+        options:
+          - US
+          - EU
 
 jobs:
   deploy:
