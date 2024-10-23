@@ -7,40 +7,31 @@ on:
 
 jobs:
   deploy-eu:
-    runs-on: ubuntu-latest
-    environment: EU
-    steps:
-      - name: Deploy EU
-        run: echo "Deployment to EU"
+    uses: ./.github/workflows/templates/deploy.yml
+    with:
+      environment: EU
 
-  end-to-end-testing-EU:
-    runs-on: ubuntu-latest
+  end-to-end-testing-eu:
+    uses: ./.github/workflows/templates/end-to-end-testing.yml
     needs: deploy-eu
-    environment: EU
-    steps:
-      - name: End to end testing
-        run: echo "End to end test execution"
+    with:
+      environment: EU
 
   bake-in-period:
     runs-on: ubuntu-latest
-    needs: end-to-end-testing-EU
-    environment: EU
+    needs: end-to-end-testing-eu
     steps:
       - name: Bake in period
         run: sleep 10
 
   deploy-us:
-    runs-on: ubuntu-latest
+    uses: ./.github/workflows/templates/deploy.yml
     needs: bake-in-period
-    environment: US
-    steps:
-      - name: Deploy US
-        run: echo "Deployment to US"
+    with:
+      environment: US
 
-  end-to-end-testing-US:
-    runs-on: ubuntu-latest
+  end-to-end-testing-us:
+    uses: ./.github/workflows/templates/end-to-end-testing.yml
     needs: deploy-us
-    environment: US
-    steps:
-      - name: End to end testing
-        run: echo "End to end test execution US"
+    with:
+      environment: US

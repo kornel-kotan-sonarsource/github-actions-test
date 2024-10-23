@@ -1,0 +1,10 @@
+name: End to End Testing
+
+on: [workflow_call]
+
+jobs:
+  end-to-end-testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: End to end testing ${{ inputs.environment }}
+        run: echo "End to end test execution ${{ inputs.environment }}"
