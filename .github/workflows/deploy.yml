@@ -5,7 +5,7 @@ on: [workflow_call]
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
+    environment: ${{ github.event.inputs.environment }}
     steps:
       - name: Deploy ${{ github.event.inputs.environment }}
         run: echo "Deployment to${{ github.event.inputs.environment }}"

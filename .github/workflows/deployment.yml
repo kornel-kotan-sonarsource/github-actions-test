@@ -8,9 +8,8 @@ on:
 jobs:
   deploy-eu:
     uses: ./.github/workflows/deploy.yml
-    environment: EU
-#    with:
-#      environment: EU
+    with:
+      environment: EU
 
 #  end-to-end-testing-eu:
 #    uses: ./.github/workflows/end-to-end-test.yml
