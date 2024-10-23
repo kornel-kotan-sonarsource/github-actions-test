@@ -6,32 +6,56 @@ on:
       - main
 
 jobs:
-  deploy-eu:
+  deploy-dev-eu:
     uses: ./.github/workflows/deploy.yml
     with:
-      environment: EU
+      environment: DEV-EU
 
-  end-to-end-testing-eu:
+  deploy-dev-us:
+    uses: ./.github/workflows/deploy.yml
+    with:
+      environment: DEV-US
+
+  deploy-staging-eu:
+    uses: ./.github/workflows/deploy.yml
+    needs: [deploy-dev-eu, deploy-dev-us]
+    with:
+      environment: STAGING-EU
+
+  deploy-staging-us:
+    uses: ./.github/workflows/deploy.yml
+    needs: [deploy-dev-eu, deploy-dev-us]
+    with:
+      environment: STAGING-US
+
+  deploy-prod-eu:
+    uses: ./.github/workflows/deploy.yml
+    needs: [deploy-staging-eu, deploy-staging-us]
+    with:
+      environment: PROD-EU
+
+  test-prod-eu:
     uses: ./.github/workflows/end-to-end-test.yml
     needs: deploy-eu
     with:
-      environment: EU
+      environment: PROD-EU
 
-#  bake-in-period:
-#    runs-on: ubuntu-latest
-#    needs: end-to-end-testing-eu
-#    steps:
-#      - name: Bake in period
-#        run: sleep 10
+  bake-in-eu:
+    runs-on: ubuntu-latest
+    needs: deploy-eu
+    environment: PROD-EU
+    steps:
+      - name: Bake in period
+        run: sleep 10
 
-  deploy-us:
+  deploy-prod-us:
     uses: ./.github/workflows/deploy.yml
-    needs: end-to-end-testing-eu
+    needs: bake-in-eu
     with:
-      environment: US
+      environment: PROD-US
 
-  end-to-end-testing-us:
+  test-prod-us:
     uses: ./.github/workflows/end-to-end-test.yml
-    needs: deploy-us
+    needs: deploy-prod-us
     with:
-      environment: US
+      environment: PROD-EU
