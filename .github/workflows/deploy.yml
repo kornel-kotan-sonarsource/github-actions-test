@@ -6,5 +6,5 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy ${{ inputs.environment }}
-        run: echo "Deployment to ${{ inputs.environment }}"
+      - name: Deploy ${{ github.event.inputs.environment }}
+        run: echo "Deployment to${{ github.event.inputs.environment }}"
