@@ -11,11 +11,11 @@ jobs:
     with:
       environment: EU
 
-#  end-to-end-testing-eu:
-#    uses: ./.github/workflows/end-to-end-test.yml
-#    needs: deploy-eu
-#    with:
-#      environment: EU
+  end-to-end-testing-eu:
+    uses: ./.github/workflows/end-to-end-test.yml
+    needs: deploy-eu
+    with:
+      environment: EU
 
 #  bake-in-period:
 #    runs-on: ubuntu-latest
@@ -23,15 +23,15 @@ jobs:
 #    steps:
 #      - name: Bake in period
 #        run: sleep 10
-#
-#  deploy-us:
-#    uses: ./.github/workflows/deploy.yml
-#    needs: bake-in-period
-#    with:
-#      environment: US
-#
-#  end-to-end-testing-us:
-#    uses: ./.github/workflows/end-to-end-test.yml
-#    needs: deploy-us
-#    with:
-#      environment: US
+
+  deploy-us:
+    uses: ./.github/workflows/deploy.yml
+    needs: deploy-eu
+    with:
+      environment: US
+
+  end-to-end-testing-us:
+    uses: ./.github/workflows/end-to-end-test.yml
+    needs: deploy-us
+    with:
+      environment: US
