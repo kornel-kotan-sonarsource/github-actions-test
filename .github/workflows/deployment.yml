@@ -1,0 +1,23 @@
+name: Deployment Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy EU
+        run: echo "Deployment to EU"
+
+      - name: End to end testing
+        run: echo "End to end test execution"
+
+      - name: Bake in period
+        run: sleep 60
+
+      - name: Deploy US
+        run: echo "Deployment to US"
