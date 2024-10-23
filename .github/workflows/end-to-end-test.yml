@@ -8,7 +8,7 @@ on:
         type: string
 
 jobs:
-  end-to-end-testing:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: End to end testing ${{ inputs.environment }}

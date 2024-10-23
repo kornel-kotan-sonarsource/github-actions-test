@@ -12,7 +12,26 @@ on:
           - EU
 
 jobs:
-  deploy:
+  deploy-staging:
     uses: ./.github/workflows/deploy.yml
     with:
-      environment: ${{ github.event.inputs.environment }}
+      environment: STAGING-${{ github.event.inputs.environment }}
+
+  test-staging:
+    uses: ./.github/workflows/end-to-end-test.yml
+    needs: deploy-staging
+    with:
+      environment: STAGING-${{ github.event.inputs.environment }}
+
+  deploy-prod:
+    uses: ./.github/workflows/deploy.yml
+    needs:
+      - test-staging
+    with:
+      environment: PROD-${{ github.event.inputs.environment }}
+
+  test-prod:
+    uses: ./.github/workflows/end-to-end-test.yml
+    needs: deploy-prod
+    with:
+      environment: PROD-${{ github.event.inputs.environment }}
