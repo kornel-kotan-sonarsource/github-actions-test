@@ -26,7 +26,7 @@ jobs:
 
   deploy-us:
     uses: ./.github/workflows/deploy.yml
-    needs: deploy-eu
+    needs: end-to-end-testing-eu
     with:
       environment: US
 

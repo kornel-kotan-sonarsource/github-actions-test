@@ -1,6 +1,11 @@
 name: End to End Testing
 
-on: [workflow_call]
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
 
 jobs:
   end-to-end-testing:
