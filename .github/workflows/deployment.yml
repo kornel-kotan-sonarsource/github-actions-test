@@ -7,12 +7,12 @@ on:
 
 jobs:
   deploy-eu:
-    uses: ./.github/workflows/templates/deploy.yml
-    with:
+    uses: .github/workflows/templates/deploy.yml@v1
+    with: 
       environment: EU
 
   end-to-end-testing-eu:
-    uses: ./.github/workflows/templates/end-to-end-testing.yml
+    uses: .github/workflows/templates/end-to-end-testing.yml@v1
     needs: deploy-eu
     with:
       environment: EU
@@ -25,13 +25,13 @@ jobs:
         run: sleep 10
 
   deploy-us:
-    uses: ./.github/workflows/templates/deploy.yml
+    uses: .github/workflows/templates/deploy.yml@v1
     needs: bake-in-period
     with:
       environment: US
 
   end-to-end-testing-us:
-    uses: ./.github/workflows/templates/end-to-end-testing.yml
+    uses: .github/workflows/templates/end-to-end-testing.yml@v1
     needs: deploy-us
     with:
       environment: US
