@@ -23,7 +23,7 @@ jobs:
 
   bake-in-period:
     runs-on: ubuntu-latest
-    needs: end-to-end-testing
+    needs: end-to-end-testing-EU
     environment: EU
     steps:
       - name: Bake in period
