@@ -1,0 +1,18 @@
+name: 'Deploy Composite Action'
+description: 'Composite action for deployment'
+inputs:
+  environment:
+    description: 'Name of environment'
+    required: true
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-id }}
+runs:
+  using: "composite"
+  environment: ${{ inputs.environment }}
+  steps:
+    - name: Deploy ${{ inputs.environment }}
+      run: echo "Deployment to ${{ inputs.environment }}"
+    - name: Log Account ID
+      run: echo "Account id  ${{ vars.ACCOUNT_ID }}"

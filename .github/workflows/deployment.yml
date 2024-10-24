@@ -19,10 +19,10 @@ jobs:
          - name: Checkout
            uses: actions/checkout@v2
          - name: Deploy DEV-EU
-           uses: ./.github/workflows/deploy.yml
+           uses: ./composite-actions/deploy-ca
            with:
             environment: DEV-EU
-         - uses: ./.github/workflows/deploy.yml
+         - uses: ./composite-actions/deploy-ca
            with:
             environment: DEV-US
 
