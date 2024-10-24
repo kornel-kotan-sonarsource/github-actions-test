@@ -43,7 +43,7 @@ jobs:
 
   deploy-prod-eu:
     uses: ./.github/workflows/deploy.yml
-    needs: [deploy-staging-eu, deploy-staging-us]
+    needs: [deploy-devs]
     with:
       environment: PROD-EU
 
