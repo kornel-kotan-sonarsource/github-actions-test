@@ -4,6 +4,7 @@ on:
   check_suite:
     types:
       - completed
+
     branches:
       - main
   push:
