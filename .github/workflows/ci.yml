@@ -19,4 +19,4 @@ jobs:
 
       - name: Generate build number
         id: generate-build-number
-        run: echo "::set-output name=build_number::$(date +%s)"
+        run: echo "name=build_number::$(date +%s)"  >> $GITHUB_OUTPUT
