@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Log build number from CI
         run:
-          echo "Build number from CI Workflow: ${{ github.event.workflow_run.outputs.build_number }}"
+          echo ${{ env.BUILD_NUMBER }}
 
 
   deploy-dev-eu:

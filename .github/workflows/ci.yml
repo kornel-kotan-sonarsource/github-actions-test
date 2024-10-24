@@ -8,8 +8,6 @@ on:
 jobs:
   build-service:
     runs-on: ubuntu-latest
-    outputs:
-      build_number: "BUILD_NUMBER=3"
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -19,4 +17,4 @@ jobs:
 
       - name: Generate build number
         id: generate-build-number
-        run: echo "BUILD_NUMBER=3"
+        run: echo "BUILD_NUMBER=3" >> $GITHUB_ENV
