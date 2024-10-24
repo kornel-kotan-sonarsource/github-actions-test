@@ -16,18 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     needs: manual-approval
     steps:
-      - uses: ./.github/workflows/deploy.yml
-        with:
-          environment: DEV-EU
-      - uses: ./.github/workflows/deploy.yml
-        with:
-          environment: DEV-US
-
-#  deploy-dev-us:
-#    uses: ./.github/workflows/deploy.yml
-#    needs: manual-approval
-#    with:
-#      environment: DEV-US
+     - name: Deploy DEV-EU
+       uses: ./.github/workflows/deploy.yml
+       with:
+        environment: DEV-EU
+#        - uses: ./.github/workflows/deploy.yml
+#          with:
+#            environment: DEV-US
 
   deploy-staging-eu:
     uses: ./.github/workflows/deploy.yml
