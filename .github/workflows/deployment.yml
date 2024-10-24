@@ -17,6 +17,14 @@ on:
       - main
 
 jobs:
+  log-build-number-from-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log build number from CI
+        run:
+          echo "Build number from CI Workflow: ${{ github.event.workflow_run.outputs.build_number }}"
+
+
   deploy-dev-eu:
     uses: ./.github/workflows/deploy.yml
     with:
