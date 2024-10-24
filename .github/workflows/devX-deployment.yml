@@ -6,8 +6,8 @@ on:
       - labeled
 
 jobs:
-  deploy-dev-4:
-    if: contains(github.event.label.name, 'dev-4')
+  deploy-dev:
+    if: startsWith(github.event.label.name, 'dev-')
     uses: ./.github/workflows/deploy.yml
     with:
-      environment: DEV-4
+      environment: ${{ github.event.label.name }}
