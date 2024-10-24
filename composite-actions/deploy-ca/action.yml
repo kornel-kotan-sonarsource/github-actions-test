@@ -10,5 +10,7 @@ runs:
   steps:
     - name: Deploy ${{ inputs.environment }}
       run: echo "Deployment to ${{ inputs.environment }}"
+      shell: bash
     - name: Log Account ID
       run: echo "Account id  "
+      shell: bash
