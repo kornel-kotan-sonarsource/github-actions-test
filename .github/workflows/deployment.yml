@@ -20,6 +20,7 @@ jobs:
 
   deploy-dev-us:
     uses: ./.github/workflows/deploy.yml
+    needs: manual-approval
     with:
       environment: DEV-US
 
