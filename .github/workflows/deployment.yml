@@ -12,7 +12,7 @@ jobs:
       - name: Awaiting manual approval
         run: echo "Please approve this workflow run manually."
 
-  deploy-dev-eu:
+  deploy-devs:
     runs-on: ubuntu-latest
     needs: manual-approval
     steps:
@@ -31,7 +31,7 @@ jobs:
 
   deploy-staging-eu:
     uses: ./.github/workflows/deploy.yml
-    needs: [deploy-dev-eu, deploy-dev-us]
+    needs: [deploy-devs]
     with:
       environment: STAGING-EU
 
