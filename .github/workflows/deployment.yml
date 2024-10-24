@@ -23,6 +23,7 @@ jobs:
            with:
             environment: DEV-EU
          - uses: ./composite-actions/deploy-ca
+           name: Deploy DEV-US
            with:
             environment: DEV-US
 
