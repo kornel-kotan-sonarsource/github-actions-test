@@ -37,13 +37,13 @@ jobs:
 
   deploy-staging-us:
     uses: ./.github/workflows/deploy.yml
-    needs: [deploy-dev-eu, deploy-dev-us]
+    needs: [deploy-devs]
     with:
       environment: STAGING-US
 
   deploy-prod-eu:
     uses: ./.github/workflows/deploy.yml
-    needs: [deploy-devs]
+    needs: [deploy-staging-eu, deploy-staging-us]
     with:
       environment: PROD-EU
 
