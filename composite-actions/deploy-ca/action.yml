@@ -6,7 +6,6 @@ inputs:
     required: true
 runs:
   using: "composite"
-  environment: ${{ inputs.environment }}
   steps:
     - name: Deploy ${{ inputs.environment }}
       run: echo "Deployment to ${{ inputs.environment }}"
