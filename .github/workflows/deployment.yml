@@ -17,7 +17,7 @@ jobs:
     needs: manual-approval
     steps:
          - name: Checkout
-           uses: actions/checkout@main
+           uses: actions/checkout
          - name: Deploy DEV-EU
            uses: ./.github/workflows/deploy.yml
            with:
