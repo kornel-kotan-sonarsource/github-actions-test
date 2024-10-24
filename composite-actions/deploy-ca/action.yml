@@ -4,10 +4,6 @@ inputs:
   environment:
     description: 'Name of environment'
     required: true
-outputs:
-  random-number:
-    description: "Random number"
-    value: ${{ steps.random-number-generator.outputs.random-id }}
 runs:
   using: "composite"
   environment: ${{ inputs.environment }}
