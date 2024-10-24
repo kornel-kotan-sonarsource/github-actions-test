@@ -11,4 +11,4 @@ runs:
     - name: Deploy ${{ inputs.environment }}
       run: echo "Deployment to ${{ inputs.environment }}"
     - name: Log Account ID
-      run: echo "Account id  ${{ vars.ACCOUNT_ID }}"
+      run: echo "Account id  "

@@ -17,7 +17,7 @@ jobs:
     needs: manual-approval
     steps:
          - name: Checkout
-           uses: actions/checkout@v2
+           uses: actions/checkout@v4
          - name: Deploy DEV-EU
            uses: ./composite-actions/deploy-ca
            with:
