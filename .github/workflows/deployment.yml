@@ -1,7 +1,14 @@
 name: Deployment Workflow
 
+#on:
+#  push:
+#    branches:
+#      - main
+
 on:
-  push:
+  check_suite:
+    types:
+      - completed
     branches:
       - main
 
@@ -77,4 +84,4 @@ jobs:
     uses: ./.github/workflows/end-to-end-test.yml
     needs: deploy-prod-us
     with:
-      environment: PROD-EU
+      environment: PROD-US
