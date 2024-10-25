@@ -1,0 +1,13 @@
+name: End-to-End Test
+description: A composite action to run end-to-end tests.
+inputs:
+  environment:
+    description: The environment to run the tests in.
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: End to end testing ${{ inputs.environment }}
+      run: echo "End to end test execution ${{ inputs.environment }}"
+      shell: bash

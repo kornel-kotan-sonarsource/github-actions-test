@@ -76,6 +76,15 @@ jobs:
     with:
       environment: PROD-EU
 
+  test-prod-eu-with-ca:
+    runs-on: ubuntu-latest
+    needs: deploy-prod-eu
+    steps:
+      - name: Run End-to-End Test
+        uses: ./.github/actions/end-to-end-test
+        with:
+          environment: PROD-EU
+
   bake-in-eu:
     runs-on: ubuntu-latest
     needs: deploy-prod-eu
