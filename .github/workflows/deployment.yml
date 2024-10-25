@@ -83,7 +83,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Run End-to-End Test
-        uses: ./.github/actions/end-to-end-test
+        uses: ./.github/composite-actions/end-to-end-test
         with:
           environment: PROD-EU
 
