@@ -8,6 +8,6 @@ on:
 jobs:
   deploy-dev:
     if: startsWith(github.event.label.name, 'dev-')
-    uses: ./.github/workflows/deploy.yml
+    uses: kornel-kotan-sonarsource/central-actions/.github/workflows/deploy.yml@main
     with:
       environment: ${{ github.event.label.name }}
