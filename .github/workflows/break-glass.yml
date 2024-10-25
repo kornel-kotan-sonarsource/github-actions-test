@@ -13,7 +13,7 @@ on:
 
 jobs:
   deploy-staging:
-    uses: ./.github/workflows/deploy.yml
+    uses: kornel-kotan-sonarsource/central-actions/.github/workflows/deploy.yml@main
     with:
       environment: STAGING-${{ github.event.inputs.environment }}
 
@@ -24,7 +24,7 @@ jobs:
       environment: STAGING-${{ github.event.inputs.environment }}
 
   deploy-prod:
-    uses: ./.github/workflows/deploy.yml
+    uses: kornel-kotan-sonarsource/central-actions/.github/workflows/deploy.yml@main
     needs:
       - test-staging
     with:

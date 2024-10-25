@@ -26,12 +26,12 @@ jobs:
 
 
   deploy-dev-eu:
-    uses: ./.github/workflows/deploy.yml
+    uses: kornel-kotan-sonarsource/central-actions/.github/workflows/deploy.yml@main
     with:
       environment: DEV-EU
 
   deploy-dev-us:
-    uses: ./.github/workflows/deploy.yml
+    uses: kornel-kotan-sonarsource/central-actions/.github/workflows/deploy.yml@main
     with:
       environment: DEV-US
 
@@ -53,19 +53,19 @@ jobs:
 
 
   deploy-staging-eu:
-    uses: ./.github/workflows/deploy.yml
+    uses: kornel-kotan-sonarsource/central-actions/.github/workflows/deploy.yml@main
     needs: [deploy-dev-eu, deploy-dev-us]
     with:
       environment: STAGING-EU
 
   deploy-staging-us:
-    uses: ./.github/workflows/deploy.yml
+    uses: kornel-kotan-sonarsource/central-actions/.github/workflows/deploy.yml@main
     needs: [deploy-dev-eu, deploy-dev-us]
     with:
       environment: STAGING-US
 
   deploy-prod-eu:
-    uses: ./.github/workflows/deploy.yml
+    uses: kornel-kotan-sonarsource/central-actions/.github/workflows/deploy.yml@main
     needs: [deploy-staging-eu, deploy-staging-us]
     with:
       environment: PROD-EU
@@ -85,7 +85,7 @@ jobs:
         run: sleep 10
 
   deploy-prod-us:
-    uses: ./.github/workflows/deploy.yml
+    uses: kornel-kotan-sonarsource/central-actions/.github/workflows/deploy.yml@main
     needs:
       - bake-in-eu
       - test-prod-eu
