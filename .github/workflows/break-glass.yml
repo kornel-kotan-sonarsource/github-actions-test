@@ -3,8 +3,8 @@ name: Break Glass Workflow
 on:
   workflow_dispatch:
     inputs:
-      environment:
-        description: 'Breakglass deployment to an environment'
+      region:
+        description: 'Breakglass deployment to a region'
         required: true
         type: choice
         options:
@@ -12,26 +12,7 @@ on:
           - EU
 
 jobs:
-  deploy-staging:
-    uses: kornel-kotan-sonarsource/central-actions/.github/workflows/deploy.yml@main
+  execute-break-glass:
+    uses: kornel-kotan-sonarsource/central-actions/.github/workflows/breakglass.yml@main
     with:
-      environment: STAGING-${{ github.event.inputs.environment }}
-
-  test-staging:
-    uses: ./.github/workflows/end-to-end-test.yml
-    needs: deploy-staging
-    with:
-      environment: STAGING-${{ github.event.inputs.environment }}
-
-  deploy-prod:
-    uses: kornel-kotan-sonarsource/central-actions/.github/workflows/deploy.yml@main
-    needs:
-      - test-staging
-    with:
-      environment: PROD-${{ github.event.inputs.environment }}
-
-  test-prod:
-    uses: ./.github/workflows/end-to-end-test.yml
-    needs: deploy-prod
-    with:
-      environment: PROD-${{ github.event.inputs.environment }}
+      region: ${{ github.event.inputs.region }}
