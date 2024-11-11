@@ -1,15 +1,15 @@
 name: Deployment Workflow
 
 on:
-  check_suite:
-    types:
-      - completed
-    branches:
-      - main
-  workflow_run:
-    workflows: [ "CI workflow" ]
-    types:
-      - completed
+#  check_suite:
+#    types:
+#      - completed
+#    branches:
+#      - main
+#  workflow_run:
+#    workflows: [ "CI workflow" ]
+#    types:
+#      - completed
   pull_request:
     types:
       - closed
