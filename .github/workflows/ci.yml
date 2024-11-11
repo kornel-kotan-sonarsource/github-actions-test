@@ -2,8 +2,8 @@ name: CI Workflow
 
 on:
   push:
-    branches:
-      - main
+#    branches:
+#      - main
 
 jobs:
   build-service:
