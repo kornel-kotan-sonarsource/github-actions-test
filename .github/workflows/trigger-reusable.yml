@@ -1,0 +1,12 @@
+name: Call Reusable Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  call-reusable-workflow:
+    uses: kornel-kotan-sonarsource/central-actions/.github/workflows/test-reusable.yml@main
+    with:
+      workflow_file: '.github/workflows/another-workflow.yml'

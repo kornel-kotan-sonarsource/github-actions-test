@@ -1,0 +1,22 @@
+name: Template - Deploy all services into one environment
+
+permissions:
+  id-token: write
+  contents: read
+  pull-requests: read
+
+on:
+  workflow_call:
+    inputs:
+      github_environment:
+        required: true
+        type: string
+
+jobs:
+  build-service:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log building service
+        run: echo "Building the service..."
+
+
