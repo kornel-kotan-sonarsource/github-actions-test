@@ -7,11 +7,6 @@ permissions:
 
 on:
   workflow_dispatch:
-    inputs:
-      github_environment:
-        description: 'Environment to deploy to'
-        required: true
-        type: string
 
 jobs:
   build-service:
