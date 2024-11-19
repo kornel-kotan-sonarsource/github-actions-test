@@ -15,3 +15,4 @@ jobs:
     uses: kornel-kotan-sonarsource/central-actions/.github/workflows/test-reusable.yml@main
     with:
       workflow_file: '.github/workflows/local-another.yml'
+      gh_token: ${{ github.token }}
