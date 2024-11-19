@@ -6,9 +6,10 @@ permissions:
   pull-requests: read
 
 on:
-  workflow_call:
+  workflow_dispatch:
     inputs:
       github_environment:
+        description: 'Environment to deploy to'
         required: true
         type: string
 
